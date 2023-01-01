@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 import * as d3 from "d3";
 import { csv, arc, pie, scaleBand, scaleLinear, max, format } from "d3";
-import data from "../Data/acousticData";
 import { useData } from "./useData";
 import { AxisBottom } from "./AxisBottom";
 import { AxisLeft } from "./AxisLeft";

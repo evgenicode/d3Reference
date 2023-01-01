@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import { MouseCircle } from "./Components/MouseCircle.js";
 import { CSSData } from "./Components/CSSData.js";
 import { HelloVegaLite } from "./Components/HelloVegaLite.js";
-import { WorldPopulation } from "./Components/WorldPopulation.js";
+import { WorldPopulation } from "./Components/PopulationBarchart/WorldPopulation.js";
 
 function App() {
   return (
