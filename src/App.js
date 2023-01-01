@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useCallback } from "react";
+import { MouseCircle } from "./Components/MouseCircle.js";
+import { CSSData } from "./Components/CSSData.js";
+import { HelloVegaLite } from "./Components/HelloVegaLite.js";
+import { WorldPopulation } from "./Components/WorldPopulation.js";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <WorldPopulation />
+      {/* <CSSData /> */}
+      {/* <HelloVegaLite /> */}
+      {/* <MouseCircle /> */}
     </div>
   );
 }
