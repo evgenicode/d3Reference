@@ -1,6 +1,7 @@
-export const AxisLeft = ({ yScale }) =>
+export const AxisLeft = ({ yScale, innerWidth }) =>
   yScale.domain().map((tickValue) => (
     <g className="tick">
+      <line x2={innerWidth} />
       <text
         key={tickValue}
         style={{ textAnchor: "end" }}
