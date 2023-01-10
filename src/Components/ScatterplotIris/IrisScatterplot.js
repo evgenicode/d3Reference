@@ -19,7 +19,7 @@ export const IrisScatterplot = () => {
     return <pre>Loading...</pre>;
   }
 
-  console.log(data[0]);
+  //console.log(data[0]);
 
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
@@ -42,7 +42,7 @@ export const IrisScatterplot = () => {
     .domain(extent(data, yValue))
     .range([0, innerHeight]);
 
-  console.log(xScale.ticks());
+  //console.log(xScale.ticks());
 
   return (
     <svg width={width} height={height}>

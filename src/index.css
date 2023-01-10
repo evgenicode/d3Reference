@@ -39,3 +39,21 @@ code {
   stroke-linejoin: round;
   stroke-linecap: round;
 }
+
+.geoMarks .sphere {
+  fill: #efefef;
+}
+
+.geoMarks .land {
+  fill: #137b90;
+}
+
+.geoMarks .interiors {
+  fill: none;
+  stroke: #339498;
+}
+
+.geoMarks .graticules {
+  fill: none;
+  stroke: #dadada;
+}
