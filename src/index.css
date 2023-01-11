@@ -57,3 +57,11 @@ code {
   fill: none;
   stroke: #dadada;
 }
+
+select {
+  font-size: 1.5em;
+}
+
+select option {
+  font-size: 1rem;
+}

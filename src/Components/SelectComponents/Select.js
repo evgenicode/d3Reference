@@ -14,7 +14,7 @@ const initialValue = "hamster";
 
 export const Select = () => {
   const [selectedValue, setSelectedValue] = useState(initialValue);
-  console.log(selectedValue);
+
   return (
     <div>
       <label htmlFor="pet-select">Choose a pet:</label>
