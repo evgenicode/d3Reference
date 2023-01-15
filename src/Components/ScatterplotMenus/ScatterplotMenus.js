@@ -6,6 +6,7 @@ import { AxisBottom } from "./AxisBottom";
 import { AxisLeft } from "./AxisLeft";
 import { Marks } from "./Marks";
 import { Dropdown } from "./Dropdown";
+import ReactDropdown from "react-dropdown";
 
 const menuHeight = 31;
 const width = 960;
@@ -64,20 +65,21 @@ export const ScatterplotMenus = () => {
 
   return (
     <>
-      <label for="x-select">X scale:</label>
-      <Dropdown
-        options={attributes}
-        id="x-select"
-        selectedValue={xAttribute}
-        onSelectedValueChange={setXAttribute}
-      />
-      <label for="y-select">Y scale:</label>
-      <Dropdown
-        options={attributes}
-        id="y-select"
-        selectedValue={yAttribute}
-        onSelectedValueChange={setYAttribute}
-      />
+      <div className="menus-container">
+        <span className="dropdown-label">X scale</span>
+        <ReactDropdown
+          options={attributes}
+          value={xAttribute}
+          onChange={({ value }) => setXAttribute(value)}
+        />
+        <span className="dropdown-label">Y scale</span>
+        <ReactDropdown
+          options={attributes}
+          value={yAttribute}
+          onChange={({ value }) => setYAttribute(value)}
+        />
+      </div>
+
       <svg width={width} height={height}>
         <g transform={`translate(${margin.left}, ${margin.top})`}>
           <AxisBottom
