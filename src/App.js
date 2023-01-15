@@ -7,10 +7,12 @@ import { Linechart } from "./Components/Linechart/Linechart.js";
 import { WorldMap } from "./Components/WorldMap/WorldMap.js";
 import { Select } from "./Components/SelectComponents/Select.js";
 import { ScatterplotMenus } from "./Components/ScatterplotMenus/ScatterplotMenus.js";
+import { ScatterplotColors } from "./Components/ScatterplotColors/ScatterplotColors.js";
 
 function App() {
   return (
     <div className="App">
+      <ScatterplotColors />
       <ScatterplotMenus />
 
       <WorldMap />
