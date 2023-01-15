@@ -8,10 +8,12 @@ import { WorldMap } from "./Components/WorldMap/WorldMap.js";
 import { Select } from "./Components/SelectComponents/Select.js";
 import { ScatterplotMenus } from "./Components/ScatterplotMenus/ScatterplotMenus.js";
 import { ScatterplotColors } from "./Components/ScatterplotColors/ScatterplotColors.js";
+import { ScatterplotInteractiveColors } from "./Components/ScatterplotInteractiveColors/ScatterplotInteractiveColors.js";
 
 function App() {
   return (
     <div className="App">
+      <ScatterplotInteractiveColors />
       <ScatterplotColors />
       <ScatterplotMenus />
 
