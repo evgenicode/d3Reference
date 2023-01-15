@@ -5,10 +5,11 @@ import { useData } from "./useData";
 import { AxisBottom } from "./AxisBottom";
 import { AxisLeft } from "./AxisLeft";
 import { Marks } from "./Marks";
+import { ColorLegend } from "./ColorLegend";
 
 const width = 960;
 const height = 500;
-const margin = { top: 20, right: 30, bottom: 60, left: 100 };
+const margin = { top: 20, right: 200, bottom: 60, left: 100 };
 const xAxisLabelOffset = 40;
 const yAxisLabelOffset = 40;
 
@@ -31,6 +32,9 @@ export const ScatterplotColors = () => {
   const yAxisLabel = "Sepal Width";
 
   const colorValue = (d) => d.species;
+  const colorLegendLabel = "Species";
+
+  const circleRadius = 7;
 
   const siFormat = format(".2s");
   const xAxisTickFormat = (tickValue) => siFormat(tickValue).replace("G", "B");
@@ -75,6 +79,18 @@ export const ScatterplotColors = () => {
         >
           {xAxisLabel}
         </text>
+        <g transform={`translate(${innerWidth + 50}, 40)`}>
+          <text x={30} y={-20} className="axis-label" textAnchor="middle">
+            {colorLegendLabel}
+          </text>
+          <ColorLegend
+            tickSpacing={20}
+            tickSize={circleRadius}
+            tickTextOffset={20}
+            colorScale={colorScale}
+          />
+        </g>
+
         <Marks
           data={data}
           xScale={xScale}
