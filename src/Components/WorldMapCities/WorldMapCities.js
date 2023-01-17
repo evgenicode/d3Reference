@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import * as d3 from "d3";
+import { scaleSqrt, max } from "d3";
 //import {  } from "d3";
 import { useWorldAtlas } from "./useWorldAtlas";
 import { useCities } from "./useCities";
@@ -16,9 +16,21 @@ export const WorldMapCities = () => {
     return <pre>Loading...</pre>;
   }
 
+  const sizeValue = (d) => d.population;
+  const maxRadius = 10;
+
+  const sizeScale = scaleSqrt()
+    .domain([0, max(cities, sizeValue)])
+    .range([0, maxRadius]);
+
   return (
     <svg width={width} height={height}>
-      <Marks worldAtlas={worldAtlas} cities={cities} />
+      <Marks
+        worldAtlas={worldAtlas}
+        cities={cities}
+        sizeScale={sizeScale}
+        sizeValue={sizeValue}
+      />
     </svg>
   );
 };
