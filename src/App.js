@@ -9,10 +9,12 @@ import { Select } from "./Components/SelectComponents/Select.js";
 import { ScatterplotMenus } from "./Components/ScatterplotMenus/ScatterplotMenus.js";
 import { ScatterplotColors } from "./Components/ScatterplotColors/ScatterplotColors.js";
 import { ScatterplotInteractiveColors } from "./Components/ScatterplotInteractiveColors/ScatterplotInteractiveColors.js";
+import { WorldMapCities } from "./Components/WorldMapCities/WorldMapCities.js";
 
 function App() {
   return (
     <div className="App">
+      <WorldMapCities />
       <ScatterplotInteractiveColors />
       <ScatterplotColors />
       <ScatterplotMenus />

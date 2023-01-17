@@ -181,3 +181,26 @@ select option {
   justify-content: center;
   align-items: center;
 }
+
+.geoMarksCities .sphere {
+  fill: #efefef;
+}
+
+.geoMarksCities .land {
+  fill: #d8d8d8;
+}
+
+.geoMarksCities .interiors {
+  fill: none;
+  stroke: #c3c3c3;
+}
+
+.geoMarksCities .graticules {
+  fill: none;
+  stroke: #dadada;
+}
+
+.geoMarksCities .city {
+  fill: #137b80;
+  opacity: 0.3;
+}
