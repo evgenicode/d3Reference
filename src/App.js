@@ -11,10 +11,12 @@ import { ScatterplotColors } from "./Components/ScatterplotColors/ScatterplotCol
 import { ScatterplotInteractiveColors } from "./Components/ScatterplotInteractiveColors/ScatterplotInteractiveColors.js";
 import { WorldMapCities } from "./Components/WorldMapCities/WorldMapCities.js";
 import { MissingMigrants } from "./Components/MissingMigrants/MissingMigrants.js";
+import { MissingMigrantsMap } from "./Components/MissingMigrantsMap/MissingMigrantsMap.js";
 
 function App() {
   return (
     <div className="App">
+      <MissingMigrantsMap />
       <MissingMigrants />
       <WorldMapCities />
       <ScatterplotInteractiveColors />
