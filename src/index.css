@@ -204,3 +204,18 @@ select option {
   fill: #137b80;
   opacity: 0.3;
 }
+
+.combined-axis-label {
+  font-size: 0.5em;
+  fill: #635f5d;
+}
+
+.combined-tick line {
+  stroke: #c0c0bb;
+}
+
+.combined-tick text {
+  fill: #635f5d;
+  cursor: default;
+  font-size: 0.5em;
+}
