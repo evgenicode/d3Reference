@@ -12,10 +12,12 @@ import { ScatterplotInteractiveColors } from "./Components/ScatterplotInteractiv
 import { WorldMapCities } from "./Components/WorldMapCities/WorldMapCities.js";
 import { MissingMigrants } from "./Components/MissingMigrants/MissingMigrants.js";
 import { MissingMigrantsMap } from "./Components/MissingMigrantsMap/MissingMigrantsMap.js";
+import { MissingMigrantsMapAndHistogram } from "./Components/MissingMigrantsMapAndHistogram/MissingMigrantsMapAndHistogram.js";
 
 function App() {
   return (
     <div className="App">
+      <MissingMigrantsMapAndHistogram />
       <MissingMigrantsMap />
       <MissingMigrants />
       <WorldMapCities />
