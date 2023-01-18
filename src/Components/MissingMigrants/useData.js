@@ -7,9 +7,9 @@ const csvUrl =
 export const useData = () => {
   const [data, setData] = useState(null);
 
-  if (data) {
-    console.log(data[0]);
-  }
+  // if (data) {
+  //   console.log(data[0]);
+  // }
 
   useEffect(() => {
     const row = (d) => {

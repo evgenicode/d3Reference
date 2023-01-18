@@ -1,5 +1,15 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { csv, scaleLinear, scaleTime, max, timeFormat, extent } from "d3";
+import {
+  csv,
+  scaleLinear,
+  scaleTime,
+  max,
+  timeFormat,
+  extent,
+  bin,
+  timeMonths,
+  sum,
+} from "d3";
 import { useData } from "./useData";
 import { AxisBottom } from "./AxisBottom";
 import { AxisLeft } from "./AxisLeft";
@@ -34,8 +44,20 @@ export const MissingMigrants = () => {
     .range([0, innerWidth])
     .nice();
 
+  const [binStart, binStop] = xScale.domain();
+
+  const binnedData = bin()
+    .value(xValue)
+    .domain(xScale.domain())
+    .thresholds(timeMonths(binStart, binStop))(data)
+    .map((array) => ({
+      totalDeadAndMissing: sum(array, yValue),
+      x0: array.x0,
+      x1: array.x1,
+    }));
+
   const yScale = scaleLinear()
-    .domain(extent(data, yValue))
+    .domain([0, max(binnedData, (d) => d.totalDeadAndMissing)])
     .range([innerHeight, 0]);
 
   return (
@@ -66,13 +88,12 @@ export const MissingMigrants = () => {
           {xAxisLabel}
         </text>
         <Marks
-          data={data}
+          binnedData={binnedData}
           xScale={xScale}
           yScale={yScale}
-          xValue={xValue}
-          yValue={yValue}
-          tooltipFormat={xAxisTickFormat}
+          tooltipFormat={(d) => d}
           circleRadius={2}
+          innerHeight={innerHeight}
         />
       </g>
     </svg>
