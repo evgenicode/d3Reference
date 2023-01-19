@@ -13,10 +13,12 @@ import { WorldMapCities } from "./Components/WorldMapCities/WorldMapCities.js";
 import { MissingMigrants } from "./Components/MissingMigrants/MissingMigrants.js";
 import { MissingMigrantsMap } from "./Components/MissingMigrantsMap/MissingMigrantsMap.js";
 import { MissingMigrantsMapAndHistogram } from "./Components/MissingMigrantsMapAndHistogram/MissingMigrantsMapAndHistogram.js";
+import { MissingMigrantsBrushing } from "./Components/MissingMigrantsBrushing/MissingMigrantsBrushing.js";
 
 function App() {
   return (
     <div className="App">
+      <MissingMigrantsBrushing />
       <MissingMigrantsMapAndHistogram />
       <MissingMigrantsMap />
       <MissingMigrants />
@@ -29,6 +31,7 @@ function App() {
       <Linechart />
       <WorldPopulation />
       <IrisScatterplot />
+
       {/* <Select /> */}
       {/* <CSSData /> */}
       {/* <HelloVegaLite /> */}
