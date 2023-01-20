@@ -11,15 +11,20 @@ import {
   select,
 } from "d3";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useMemo } from "react";
 import { AxisBottom } from "./AxisBottom";
 import { AxisLeft } from "./AxisLeft";
 import { Marks } from "./Marks";
 
-const width = 960;
 const margin = { top: 0, right: 30, bottom: 20, left: 40 };
 const xAxisLabelOffset = 50;
 const yAxisLabelOffset = 25;
+const xAxisTickFormat = timeFormat("%m/%d/%Y");
+
+const xAxisLabel = "Time";
+
+const yValue = (d) => d["Total Dead and Missing"];
+const yAxisLabel = "Total Dead and Missing";
 
 export const DateHistogram = ({
   data,
@@ -33,33 +38,32 @@ export const DateHistogram = ({
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
-  const xAxisLabel = "Time";
+  const xScale = useMemo(
+    () =>
+      scaleTime().domain(extent(data, xValue)).range([0, innerWidth]).nice(),
+    [data, xValue, innerWidth]
+  );
 
-  const yValue = (d) => d["Total Dead and Missing"];
-  const yAxisLabel = "Total Dead and Missing";
+  const binnedData = useMemo(() => {
+    const [binStart, binStop] = xScale.domain();
+    return bin()
+      .value(xValue)
+      .domain(xScale.domain())
+      .thresholds(timeMonths(binStart, binStop))(data)
+      .map((array) => ({
+        totalDeadAndMissing: sum(array, yValue),
+        x0: array.x0,
+        x1: array.x1,
+      }));
+  }, [xValue, yValue, xScale, data]);
 
-  const xAxisTickFormat = timeFormat("%m/%d/%Y");
-
-  const xScale = scaleTime()
-    .domain(extent(data, xValue))
-    .range([0, innerWidth])
-    .nice();
-
-  const [binStart, binStop] = xScale.domain();
-
-  const binnedData = bin()
-    .value(xValue)
-    .domain(xScale.domain())
-    .thresholds(timeMonths(binStart, binStop))(data)
-    .map((array) => ({
-      totalDeadAndMissing: sum(array, yValue),
-      x0: array.x0,
-      x1: array.x1,
-    }));
-
-  const yScale = scaleLinear()
-    .domain([0, max(binnedData, (d) => d.totalDeadAndMissing)])
-    .range([innerHeight, 0]);
+  const yScale = useMemo(
+    () =>
+      scaleLinear()
+        .domain([0, max(binnedData, (d) => d.totalDeadAndMissing)])
+        .range([innerHeight, 0]),
+    [binnedData, innerHeight]
+  );
 
   useEffect(() => {
     const brush = brushX().extent([
