@@ -14,10 +14,12 @@ import { MissingMigrants } from "./Components/MissingMigrants/MissingMigrants.js
 import { MissingMigrantsMap } from "./Components/MissingMigrantsMap/MissingMigrantsMap.js";
 import { MissingMigrantsMapAndHistogram } from "./Components/MissingMigrantsMapAndHistogram/MissingMigrantsMapAndHistogram.js";
 import { MissingMigrantsBrushing } from "./Components/MissingMigrantsBrushing/MissingMigrantsBrushing.js";
+import { ChoroplethMap } from "./Components/ChoroplethMap/ChoroplethMap.js";
 
 function App() {
   return (
     <div className="App">
+      <ChoroplethMap />
       <MissingMigrantsBrushing />
       <MissingMigrantsMapAndHistogram />
       <MissingMigrantsMap />
