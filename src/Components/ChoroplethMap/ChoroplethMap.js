@@ -20,15 +20,12 @@ export const ChoroplethMap = () => {
     return <pre>Loading...</pre>;
   }
 
-  console.log(codes);
   const numericCodeByAlphaCode = new Map();
   codes.forEach((code) => {
     const alpha3Code = code["alpha-3"];
     const numericCode = code["country-code"];
     numericCodeByAlphaCode.set(alpha3Code, numericCode);
   });
-
-  console.log(numericCodeByAlphaCode);
 
   const filteredData = data.filter((d) => d.Year === selectedYear);
 

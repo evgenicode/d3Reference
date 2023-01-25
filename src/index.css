@@ -219,3 +219,9 @@ select option {
   cursor: default;
   font-size: 0.5em;
 }
+
+.LinechartPath {
+  fill: none;
+  stroke: black;
+  stroke-width: 5px;
+}

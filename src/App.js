@@ -15,10 +15,12 @@ import { MissingMigrantsMap } from "./Components/MissingMigrantsMap/MissingMigra
 import { MissingMigrantsMapAndHistogram } from "./Components/MissingMigrantsMapAndHistogram/MissingMigrantsMapAndHistogram.js";
 import { MissingMigrantsBrushing } from "./Components/MissingMigrantsBrushing/MissingMigrantsBrushing.js";
 import { ChoroplethMap } from "./Components/ChoroplethMap/ChoroplethMap.js";
+import { CoronavirusLineChart } from "./Components/CoronavirusLineChart/CoronavirusLineChart.js";
 
 function App() {
   return (
     <div className="App">
+      <CoronavirusLineChart />
       <ChoroplethMap />
       <MissingMigrantsBrushing />
       <MissingMigrantsMapAndHistogram />
